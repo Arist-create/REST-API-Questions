@@ -4,8 +4,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 
 async def get_last_question_db(db: AsyncSession) -> str | None:
-    response: Question | None = await db.execute(select(Question).order_by(Question.id.desc()))
-    result: Question | None = response.scalars().first()
+    response = await db.execute(select(Question).order_by(Question.id.desc()))
+    result = response.scalars().first()
     if result is None:
         return None
     else:

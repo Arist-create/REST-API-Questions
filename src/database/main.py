@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 
 load_dotenv()
 
-database_path: str = os.getenv("DATABASE_URL")
+database_path = os.getenv("DATABASE_URL")
 engine = create_async_engine(database_path)
 
 Base = declarative_base()
